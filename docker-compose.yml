@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  app:
+    image: php:8.0-apache
+    container_name: simple_blog_app
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/www:/var/www/html/
+    ports:
+      - 8000:80
+    networks:
+      - simple_blog-network
+  db:
+    container_name: simple_blog_db
+    image: mysql
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${MY_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+        - "9906:3306"
+    networks:
+      - simple_blog-network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - '8080:80'
+    restart: always
+    environment:
+        PMA_HOST: simple_blog_db
+    networks:
+      - simple_blog-network
+    
+networks:
+  simple_blog-network:
+    driver: bridge
