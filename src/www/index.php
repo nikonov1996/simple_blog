@@ -1,3 +1,3 @@
 <?php
-echo "Иди нахуй Влад"
+echo "Hello world!"
 ?>
