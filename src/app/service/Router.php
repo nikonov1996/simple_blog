@@ -18,7 +18,13 @@ class Router {
     public static function enable(){
        //print_r(self::$list);
        $query = $_GET['q'];
-       echo $query;
+
+       foreach (self::$list as $route){
+           if ($route['uri'] === "/" . $query){
+               require_once "/var/www/html/app/views/" . $route['page'] . ".php";
+           }
+       }
+       
     }
 
 }
