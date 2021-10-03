@@ -3,9 +3,6 @@ namespace app\service;
 
 class Router {
 
-    // function __construct() {
-    //     echo "created";
-    // }
     private static $list = [];
 
     public static function route($uri, $page_name){
@@ -16,15 +13,21 @@ class Router {
     }
 
     public static function enable(){
-       //print_r(self::$list);
-       $query = $_GET['q'];
+       
+        $query = $_GET['q'];
 
        foreach (self::$list as $route){
-           if ($route['uri'] === "/" . $query){
-               require_once "/var/www/html/app/views/" . $route['page'] . ".php";
-           }
+            if ($route['uri'] === "/" . $query){
+                require_once "/var/www/html/app/views/" . $route['page'] . ".php";
+                die();
+            }
+            self::not_found();
        }
        
+    }
+
+    private static function not_found(){
+        require_once "/var/www/html/app/views/404.php";
     }
 
 }
