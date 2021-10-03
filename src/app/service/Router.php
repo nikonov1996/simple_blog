@@ -1,4 +1,5 @@
 <?php
+
 namespace app\service;
 
 class Router {
@@ -18,16 +19,16 @@ class Router {
 
        foreach (self::$list as $route){
             if ($route['uri'] === "/" . $query){
-                require_once "/var/www/html/app/views/" . $route['page'] . ".php";
+                require_once "app/views/pages/" . $route['page'] . ".php";
                 die();
             }
-            self::not_found();
+            
        }
-       
+       self::not_found();
     }
 
     private static function not_found(){
-        require_once "/var/www/html/app/views/404.php";
+        require_once "app/views/pages/404.php";
     }
 
 }
