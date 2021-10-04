@@ -14,8 +14,9 @@ class Router {
     }
 
     public static function enable(){
-       
-        $query = $_GET['q'];
+    
+    $query = $_SERVER['QUERY_STRING'];    
+    // $query = $_GET['q'];
 
        foreach (self::$list as $route){
             if ($route['uri'] === "/" . $query){
