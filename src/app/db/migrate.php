@@ -1,10 +1,26 @@
 <?php
-require_once("/src/app/db/ConnectionDB.php");
-require_once("/src/core/db/AbstractDBMigration.php");
+require_once "./ConnectionDB.php";
 
-$db = new ConnectonDB();
-$mig = new AbstractDBMigration();
+function getMigrationsList(){
 
-$con = $db->getDBConnection();
-$files = $mig->getMigrationFiles($con);
-$mig->runNewMigrates($con, $files);
+    try{
+        $mig_files = scandir("./migrations");
+    }catch(Exception $e){
+        echo $e->getMessage();
+    }
+    
+    return $mig_files;
+}
+
+function runMigrate($connection,$files){
+    for ($i=2; $i<count($files) ; $i++){
+        $command = file_get_contents("./migrations/" . $files[$i]);
+        $connection->query($command);
+    }
+
+}
+
+$files = getMigrationsList();
+$con = new ConnectonDB();
+$db = $con->getDBConnection();
+//runMigrate($db, $files);

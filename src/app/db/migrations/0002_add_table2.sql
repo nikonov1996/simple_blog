@@ -1,4 +1,4 @@
-create table goods111(
+create table goods33(
     supply_id	INT PRIMARY KEY AUTO_INCREMENT,
     title	VARCHAR(50),
     author	VARCHAR(30),
