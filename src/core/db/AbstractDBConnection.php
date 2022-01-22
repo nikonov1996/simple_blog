@@ -1,12 +1,12 @@
 <?php
 
-class AbstractDBConection{
+abstract class AbstractDBConection{
     //TODO Необходимо решить проблему с грабом файла .env что бы не хранить переменные в чистом виде тут.
-    protected $db_host = 'localhost';
-    protected $db_user = 'tester';
-    protected $db_password = 'tester';
-//    protected $db_table_versions = 'versions';
-    protected $db_name = 'simple_blog_db';
+    protected $db_host;
+    protected $db_user;
+    protected $db_password;
+    protected $db_table_versions; // не знаю для чего , но пока пусть будет)
+    protected $db_name;
     protected $db_connection;
 
     public function getDBConnection(){
