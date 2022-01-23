@@ -12,10 +12,9 @@
 <?php
     Page::page_component("navbar");
 ?>
-
-    <div class="alert alert-primary" role="alert">
-AUTHORIZATION PAGE 
-   </div>
+<?php
+    Page::page_component("signin_form");
+?>
 
 </body>
 </html>

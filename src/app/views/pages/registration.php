@@ -13,9 +13,9 @@
     Page::page_component("navbar");
 ?>
 
-    <div class="alert alert-primary" role="alert">
-REGISTRATION PAGE  
-  </div>
+<?php
+    Page::page_component("regist_form");
+?>
 
 </body>
 </html>
