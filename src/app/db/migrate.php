@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ ."/ConnectionDB.php";
-require_once __DIR__ ."/MigrationDB.php";
+require_once "../../../vendor/autoload.php";
 
-$db = new ConnectonDB();
-$migration = new MigrationDB();
-$connection = $db->getDBConnection();
+$db = new Src\app\db\ConnectionDB;
+$migration = new Src\app\db\MigrationDB;
+$connection = $db->getDBConnection("localhost:9906"); //TODO недопустимо явно указывать хост,нужно решить эту проблему через разное окружение 
 $migration->runMigrate($connection);
+

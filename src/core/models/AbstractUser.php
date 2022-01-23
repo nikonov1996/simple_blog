@@ -1,5 +1,5 @@
 <?php
-namespace \core\models;
+namespace Src\core\models;
 
 abstract class AbstractUser{
 
@@ -10,7 +10,7 @@ abstract class AbstractUser{
         
     }
 
-    protected static function Registration($formdata){
+    protected function Registration($formdata){
         
     }
 

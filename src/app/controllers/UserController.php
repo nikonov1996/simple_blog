@@ -1,13 +1,13 @@
 <?php
-namespace app\controllers;
-require_once "app/models/User.php";
-use app\models\User;
+namespace Src\app\controllers;
+use Src\app\models\User;
 
 class UserController{
 
 
     public function register($formdata){
-        User::Registration($formdata);
+        $user = new User;
+        $user->Registration($formdata);
     }
 
 

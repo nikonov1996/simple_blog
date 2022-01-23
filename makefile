@@ -1,6 +1,7 @@
 run:
 	docker-compose build
 	docker-compose up
+	composer dump-autoload -o
 
 stop:
 	docker-compose down

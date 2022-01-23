@@ -1,7 +1,8 @@
 <?php
 
-namespace app\service;
-require_once "app/controllers/UserController.php";
+namespace Src\app\service;
+//require_once "app/controllers/UserController.php";
+use Src\app\controllers\UserController;
 use app\models\User;
 
 class Router {
@@ -46,7 +47,7 @@ class Router {
                 die();
 
             }else{
-                require_once "app/views/pages/" . $route['page'] . ".php";
+                require_once "src/app/views/pages/" . $route['page'] . ".php";
                 die();
             }
         }
@@ -57,7 +58,7 @@ class Router {
     }
 
     private static function not_found(){
-        require_once "app/views/pages/404.php";
+        require_once "src/app/views/pages/404.php";
     }
 
 }

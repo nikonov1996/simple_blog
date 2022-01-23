@@ -1,11 +1,11 @@
 <?php
 
-namespace app\service;
+namespace Src\app\service;
 
 class Page{
 
     public static function page_component($component){
-        require_once("app/views/components/" . $component . ".php");
+        require_once("src/app/views/components/" . $component . ".php");
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
-use app\service\Router;
-use app\controllers\UserController;
+use Src\app\service\Router;
+use Src\app\controllers\UserController;
 
 Router::route('/test','test');
 Router::route('/articles_list', 'articles_list');
