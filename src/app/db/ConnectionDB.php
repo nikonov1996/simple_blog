@@ -1,5 +1,8 @@
 <?php
-require_once ("../../core/db/AbstractDBConnection.php");
+namespace app\db;
+
+require_once ("core/db/AbstractDBConnection.php");
+use core\db\AbstractDBConection;
 
 class ConnectonDB extends AbstractDBConection{
 

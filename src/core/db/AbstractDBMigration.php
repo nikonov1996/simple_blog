@@ -1,4 +1,5 @@
 <?php
+namespace core\db;
 require_once __DIR__ ."/AbstractDBConnection.php";
 
 abstract class AbstractDBMigration{

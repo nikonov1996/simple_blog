@@ -1,6 +1,8 @@
 <?php
 
 namespace app\service;
+require_once "app/controllers/UserController.php";
+use app\models\User;
 
 class Router {
 
@@ -13,17 +15,43 @@ class Router {
         ];
     }
 
+    public static function post($uri , $class, $method , $formdata){
+        self::$list[] = [
+            "uri" => $uri,
+            "class" => $class,
+            "method" => $method,
+            "post" => true,
+            "formdata" => $formdata
+        ];
+    }
+
     public static function enable(){
     
     $query = $_SERVER['QUERY_STRING'];    
     // $query = $_GET['q'];
 
        foreach (self::$list as $route){
-            if ($route['uri'] === "/" . $query){
+
+        if ($route['uri'] === "/" . $query){
+            
+            if ($route['post'] === true && $_SERVER['REQUEST_METHOD'] === 'POST'){
+
+                $action = new $route["class"];
+                $method = $route["method"];
+                if ($route["formdata"]){
+                    $action->$method($_POST);
+                } else {
+                    $action->$method();
+                }
+                die();
+
+            }else{
                 require_once "app/views/pages/" . $route['page'] . ".php";
                 die();
             }
-            
+        }
+        
+
        }
        self::not_found();
     }

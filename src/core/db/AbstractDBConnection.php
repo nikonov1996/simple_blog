@@ -1,4 +1,5 @@
 <?php
+namespace core\db;
 
 abstract class AbstractDBConection{
     //TODO Необходимо решить проблему с грабом файла .env что бы не хранить переменные в чистом виде тут.
