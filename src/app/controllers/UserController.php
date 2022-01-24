@@ -12,8 +12,13 @@ class UserController{
     }
 
     public function login($formdata){
-        \session_start();
+       // \session_start();
         User::Authorization($formdata);
+    }
+
+    public function logout(){
+        //\session_start();
+        User::Logout();
     }
 
 

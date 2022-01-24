@@ -1,4 +1,7 @@
-<?php use Src\app\service\Page; ?>
+<?php 
+use Src\app\service\Page;
+Page::checkAuth();// TODO необходимо реализовать доступ на каждой старнице
+?>
 
 <!DOCTYPE html>
 <html lang="en">

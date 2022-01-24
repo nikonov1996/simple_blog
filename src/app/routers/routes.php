@@ -12,6 +12,7 @@ Router::route('/auth','auth');
 
 Router::post('/registration/register', UserController::class, 'register', true);
 Router::post('/auth/login', UserController::class, 'login', true);
+Router::post('/logout', UserController::class,'logout',false);
 
 Router::enable();
 

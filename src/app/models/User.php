@@ -48,8 +48,9 @@ class User extends AbstractUser{
         
     }
 
-    public static function checkUserPresent(){
-
+    public static function Logout(){
+        unset($_SESSION['user']);
+        Router::redirect("/auth");
     }
 
 }
