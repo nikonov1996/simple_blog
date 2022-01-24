@@ -1,9 +1,11 @@
 <?php
-require_once ("../../core/db/AbstractDBConnection.php");
+namespace Src\app\db;
 
-class ConnectonDB extends AbstractDBConection{
+use Src\core\db\AbstractDBConection;
 
-    protected $db_host = 'localhost:9906';
+class ConnectionDB extends AbstractDBConection{
+
+    protected $db_host = 'db'; //localhost:9906
     protected $db_user = 'tester';
     protected $db_password = 'tester';
     protected $db_table_versions = 'versions'; // не знаю для чего , но пока пусть будет)

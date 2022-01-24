@@ -1,4 +1,6 @@
-<?php use app\service\Page; ?>
+<?php 
+use Src\app\service\Page; 
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,4 @@
-<?php use app\service\Page; ?>
+<?php use Src\app\service\Page; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +12,9 @@
 <?php
     Page::page_component("navbar");
 ?>
-
-    <div class="alert alert-primary" role="alert">
-AUTHORIZATION PAGE 
-   </div>
+<?php
+    Page::page_component("signin_form");
+?>
 
 </body>
 </html>

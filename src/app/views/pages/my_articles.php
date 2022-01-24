@@ -1,4 +1,7 @@
-<?php use app\service\Page; ?>
+<?php 
+use Src\app\service\Page;
+Page::checkAuth();// TODO необходимо реализовать доступ на каждой старнице
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +17,8 @@
 ?>
 
     <div class="alert alert-primary" role="alert">
-TEST PAGE    
-</div>
+ARTICLE CREATE PAGE!
+    </div>
 
 </body>
 </html>

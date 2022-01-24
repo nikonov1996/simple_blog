@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-    'Stringable' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
-    'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
-    'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
+    'Src\\app\\controllers\\UserController' => $baseDir . '/src/app/controllers/UserController.php',
+    'Src\\app\\models\\User' => $baseDir . '/src/app/models/User.php',
+    'Src\\app\\service\\Page' => $baseDir . '/src/app/service/Page.php',
+    'Src\\app\\service\\Router' => $baseDir . '/src/app/service/Router.php',
+    'Src\\core\\db\\AbstractDBConection' => $baseDir . '/src/core/db/AbstractDBConnection.php',
+    'Src\\core\\db\\AbstractDBMigration' => $baseDir . '/src/core/db/AbstractDBMigration.php',
+    'Src\\core\\models\\AbstractUser' => $baseDir . '/src/core/models/AbstractUser.php',
 );
