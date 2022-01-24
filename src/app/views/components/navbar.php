@@ -10,7 +10,7 @@
             <a class="nav-link active" aria-current="page" href="/articles_list">List of articles</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/article_create">Create article</a>
+            <a class="nav-link" href="/my_articles">My_articles</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="/article_edit">Edit article</a>

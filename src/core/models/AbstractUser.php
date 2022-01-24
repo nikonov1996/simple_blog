@@ -4,18 +4,17 @@ namespace Src\core\models;
 abstract class AbstractUser{
 
     protected $username, $email, $password , $user_id, $role_id;
-    protected $connection;
 
-    protected function Authorization($formdata){
+    protected static function Authorization($formdata){
         
     }
 
-    protected function Registration($formdata){
+    protected static function Registration($formdata){
         
     }
 
-    protected static function createUser(){
-
+    protected static function checkUserPresent(){
+        
     }
 
     protected static function deleteUser(){

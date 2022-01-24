@@ -27,7 +27,24 @@ abstract class AbstractDBConection{
         return $this->db_connection;
     }
 
-    public function sql_request($connection,$sql){
-        $connection->query($sql);
+    //функция для получения инфы из дб
+    public function sqlGet($db_host, $sql){
+        try{
+            $connection = $this->getDBConnection($db_host);
+            $result = $connection->query($sql);
+        }catch(Exception $e){
+            echo "Eror message: " . $e;
+        }
+        return $result;
     }
+    //функция для изменения инфы в дб
+    public function sqlMake($db_host, $sql){
+        try{
+            $connection = $this->getDBConnection($db_host);
+            $connection->query($sql);
+        }catch(Exception $e){
+            echo "Eror message: " . $e;
+        }
+    }
+
 }

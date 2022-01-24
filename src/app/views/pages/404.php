@@ -1,5 +1,5 @@
 <?php
-    use app\service\Page;
+    use Src\app\service\Page;
 ?>
 
 <!DOCTYPE html>

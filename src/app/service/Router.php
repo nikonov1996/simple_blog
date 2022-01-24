@@ -57,9 +57,15 @@ class Router {
        self::not_found();
     }
 
-    private static function not_found(){
+    public static function not_found(){
         require_once "src/app/views/pages/404.php";
     }
+
+    public static function redirect($uri){
+        \header('Location: ' . $uri);
+    }
+
+    
 
 }
 
