@@ -1,7 +1,7 @@
 <?php
 
 namespace Src\app\service;
-//require_once "app/controllers/UserController.php";
+use Src\app\views\View;
 use Src\app\controllers\UserController;
 use app\models\User;
 
@@ -26,6 +26,16 @@ class Router {
         ];
     }
 
+    public static function get($uri , $class, $method , $formdata){
+        self::$list[] = [
+            "uri" => $uri,
+            "class" => $class,
+            "method" => $method,
+            "get" => true,
+            "formdata" => $formdata
+        ];
+    }
+
     public static function enable(){
     
     $query = $_SERVER['QUERY_STRING'];    
@@ -35,8 +45,7 @@ class Router {
 
         if ($route['uri'] === "/" . $query){
             
-            if ($route['post'] === true && $_SERVER['REQUEST_METHOD'] === 'POST'){
-
+            if ($route["post"] === true && $_SERVER['REQUEST_METHOD'] === 'POST'){
                 $action = new $route["class"];
                 $method = $route["method"];
                 if ($route["formdata"]){
@@ -46,8 +55,18 @@ class Router {
                 }
                 die();
 
+            }elseif($route["get"] === true && $_SERVER['REQUEST_METHOD'] === 'GET'){
+                $action = new $route["class"];
+                $method = $route["method"];
+                if ($route["formdata"]){
+                    $action->$method($_GET);//это неверно походу
+                } else {
+                    $action->$method();
+                }
+                die();
+
             }else{
-                require_once "src/app/views/pages/" . $route['page'] . ".php";
+                View::view($route['page']);
                 die();
             }
         }

@@ -53,4 +53,12 @@ class User extends AbstractUser{
         Router::redirect("/auth");
     }
 
+    public static function getUserById($user_id){
+        $sql = 'SELECT * FROM Users WHERE user_id="'. $user_id .'";';
+        $db = new ConnectionDB();
+        $result = $db->sqlGet("db",$sql);
+        $user = $result->fetch_object();
+        return $user;
+    }
+
 }
