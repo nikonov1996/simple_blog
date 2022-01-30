@@ -59,7 +59,7 @@ class Router {
                 $action = new $route["class"];
                 $method = $route["method"];
                 if ($route["formdata"]){
-                    $action->$method($_GET);//это неверно походу
+                    $action->$method($_GET);
                 } else {
                     $action->$method();
                 }

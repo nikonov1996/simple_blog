@@ -1,7 +1,6 @@
 <?php 
 use Src\app\service\Page;
-use Src\app\views\View;
-use Src\app\models\User; ?>
+use Src\app\views\View; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +27,15 @@ use Src\app\models\User; ?>
                 <strong>You can write to author by email: </strong> <?=$article->user_email?>
             </p>
             <a href="/article/<?= $article->article_id ?>" class="btn btn-primary">Read</a>
+            <?php 
+                if($_SESSION["user"]["role_id"] == 1){ ?>
+                <div class="float-end">
+                    <a href="/article/<?= $article->article_id ?>" class="btn btn-secondary">Edit</a>
+                    <a href="/article/<?= $article->article_id ?>" class="btn btn-danger">Delete</a>
+                </div> 
+            <?php 
+                }
+            ?>
         </div>
     </div>
     <?php } ?>

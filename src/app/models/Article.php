@@ -7,7 +7,7 @@ use Src\app\service\Router;
 class Article extends AbstractArticle{
 
     public static function getAllArticles(){
-        $sql = 'SELECT article_id,article_name,article_description,article_text,article_date,user_name, user_email FROM Articles
+        $sql = 'SELECT article_id,article_name,article_description,article_text,article_date,author_id,role_id,user_name, user_email FROM Articles
         INNER JOIN Users ON author_id = user_id';
         $db = new ConnectionDB();
         $result = $db->sqlGet("db",$sql);

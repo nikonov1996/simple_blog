@@ -10,8 +10,13 @@ class ArticleController{
 
     public function printAllArticles(){
         $articles = Article::getAllArticles();
-        View::view('/articles_list',$articles);
+        View::view('articles_list',$articles);
         
+    }
+
+    public function printUserArticles(){
+        $articles = Article::getAllArticles();
+        View::view('my_articles',$articles);
     }
 
 
