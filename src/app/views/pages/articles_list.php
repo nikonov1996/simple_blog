@@ -17,15 +17,15 @@ use Src\app\models\User; ?>
     <?php
     $articles = View::getViewData();
     foreach( $articles as $article){
-        $author= User::getUserById($article->author_id); ?>
+    ?> 
     <div class="card" >
         <div class="card-body">
             <h5 class="card-title"><?= $article->article_name ?></h5>
             <p class="card-text"><?= $article->article_description ?></p>
             <p>
-                <strong>Added by </strong> <?= $author->user_name ?>
+                <strong>Added by </strong> <?= $article->user_name ?>
                 <strong> at </strong> <?=$article->article_date?>
-                <strong>You can write to author by email: </strong> <?=$author->user_email?>
+                <strong>You can write to author by email: </strong> <?=$article->user_email?>
             </p>
             <a href="/article/<?= $article->article_id ?>" class="btn btn-primary">Read</a>
         </div>
