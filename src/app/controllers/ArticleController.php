@@ -19,6 +19,11 @@ class ArticleController{
         View::view('my_articles',$articles);
     }
 
+    public function printArticleById($id){
+        $article = Article::getArticleById($id);
+        View::view('article', $article);
+    }
+
 
 
 

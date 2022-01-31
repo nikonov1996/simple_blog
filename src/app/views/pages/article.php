@@ -19,26 +19,30 @@ Page::checkAuth();
 
     <?php
 
-    $articles = View::getViewData();
-    foreach( $articles as $article){
-        if($_SESSION['user']['role_id'] === $article->role_id){
+    $article = View::getViewData();
+    if($_SESSION['user']['role_id'] === $article->role_id){
     ?> 
     <div class="card" >
         <div class="card-body">
-            <h4 class="card-title"><?= $article->article_name ?></h4>
+            <h2 class="card-title"><?= $article->article_name ?></h2>
+            <br>
+            <h4>Description:</h4>
             <p class="card-text"><?= $article->article_description ?></p>
+            <br><br>
+            <p class="card-text"><?=$article->article_text?></p>
+            <br>
             <p>
                 <strong>Added by </strong> <?= $article->user_name ?>
                 <strong> at </strong> <?=$article->article_date?>
                 <strong>You can write to author by email: </strong> <?=$article->user_email?>
             </p>
-            <a href="/article/<?= $article->article_id ?>" class="btn btn-primary">Read</a>
             <div class="float-end">
                 <a href="/article/<?= $article->article_id ?>" class="btn btn-secondary" id="edit_button">Edit</a>
+                <a href="/article/<?= $article->article_id ?>" class="btn btn-danger" id="delete_button">Delete</a>
             </div>
         </div>
     </div>
-    <?php }} ?>
+    <?php } ?>
 
 </body>
 </html>

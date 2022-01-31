@@ -3,3 +3,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 AddDefaultCharset UTF-8
 RewriteRule (.*) index.php?$1 [L,QSA]
+RewriteRule ^article/([0-9])$ /article?$1 [L,QSA]

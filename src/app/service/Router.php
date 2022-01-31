@@ -26,23 +26,22 @@ class Router {
         ];
     }
 
-    public static function get($uri , $class, $method , $formdata){
+    public static function get($uri , $class, $method ){
+        var_dump($uri);
         self::$list[] = [
             "uri" => $uri,
             "class" => $class,
             "method" => $method,
             "get" => true,
-            "formdata" => $formdata
+            "id" => end(explode("/",$uri))
         ];
     }
 
     public static function enable(){
     
     $query = $_SERVER['QUERY_STRING'];    
-    // $query = $_GET['q'];
-
        foreach (self::$list as $route){
-
+        
         if ($route['uri'] === "/" . $query){
             
             if ($route["post"] === true && $_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -58,11 +57,7 @@ class Router {
             }elseif($route["get"] === true && $_SERVER['REQUEST_METHOD'] === 'GET'){
                 $action = new $route["class"];
                 $method = $route["method"];
-                if ($route["formdata"]){
-                    $action->$method($_GET);
-                } else {
-                    $action->$method();
-                }
+                $action->$method($route["id"]);
                 die();
 
             }else{
@@ -77,7 +72,7 @@ class Router {
     }
 
     public static function not_found(){
-        require_once "src/app/views/pages/404.php";
+        View::view("404");
     }
 
     public static function redirect($uri){

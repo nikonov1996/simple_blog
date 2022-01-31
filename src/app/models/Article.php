@@ -16,5 +16,12 @@ class Article extends AbstractArticle{
         }
         return $articles;
     }
+
+    public static function getArticleById($article_id){
+        $sql = 'SELECT article_id,article_name,article_description,article_text,article_date,author_id,role_id,user_name, user_email FROM Articles INNER JOIN Users ON author_id = user_id where article_id ='. $article_id .';';
+        $db = new ConnectionDB();
+        $result = $db->sqlGet("db",$sql);
+        return $result->fetch_object();
+    }
 }
 
