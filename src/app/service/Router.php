@@ -27,7 +27,6 @@ class Router {
     }
 
     public static function get($uri , $class, $method ){
-        var_dump($uri);
         self::$list[] = [
             "uri" => $uri,
             "class" => $class,
@@ -76,7 +75,7 @@ class Router {
     }
 
     public static function redirect($uri){
-        \header('Location: ' . $uri);
+        View::view($uri);
     }
 
     

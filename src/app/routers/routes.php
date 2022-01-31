@@ -16,9 +16,9 @@ Router::route('/auth','auth');
 Router::post('/registration/register', UserController::class, 'register', true);
 Router::post('/auth/login', UserController::class, 'login', true);
 Router::post('/logout', UserController::class,'logout',false);
-Router::get('/articles_list',ArticleController::class,"printAllArticles",false);
-Router::get('/my_articles',ArticleController::class,"printUserArticles",false);
-Router::get('/article/'.end(explode("/",$_SERVER['QUERY_STRING'])),ArticleController::class,"printArticleById",false);
+Router::get('/articles_list',ArticleController::class,"printAllArticles");
+Router::get('/my_articles',ArticleController::class,"printUserArticles");
+Router::get('/article/'.end(explode("/",$_SERVER['QUERY_STRING'])),ArticleController::class,"printArticleById");
 
 Router::enable();
 

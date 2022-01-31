@@ -23,6 +23,8 @@ services:
         MYSQL_DATABASE: ${MY_DATABASE}
         MYSQL_USER: ${MYSQL_USER}
         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
     ports:
         - "9906:3306"
     networks:
@@ -37,7 +39,8 @@ services:
         PMA_HOST: db
     networks:
       - simple_blog-network
-    
+volumes:
+  mysql-data:
 networks:
   simple_blog-network:
     driver: bridge

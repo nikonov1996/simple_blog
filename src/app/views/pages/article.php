@@ -20,7 +20,6 @@ Page::checkAuth();
     <?php
 
     $article = View::getViewData();
-    if($_SESSION['user']['role_id'] === $article->role_id){
     ?> 
     <div class="card" >
         <div class="card-body">
@@ -37,12 +36,16 @@ Page::checkAuth();
                 <strong>You can write to author by email: </strong> <?=$article->user_email?>
             </p>
             <div class="float-end">
+                <?php 
+                if ($_SESSION['user'] && $_SESSION['user']['user_id']===$article->author_id){
+                ?>
                 <a href="/article/<?= $article->article_id ?>" class="btn btn-secondary" id="edit_button">Edit</a>
                 <a href="/article/<?= $article->article_id ?>" class="btn btn-danger" id="delete_button">Delete</a>
+                <?php } ?>
             </div>
         </div>
     </div>
-    <?php } ?>
+    
 
 </body>
 </html>
