@@ -39,7 +39,8 @@ class Article extends AbstractArticle{
         $article_description = $formdata['article_description'];
         $article_text = $formdata['article_text'];
         $author_id = $formdata['author_id'];
-        
+        $sql = 'INSERT INTO Articles(article_name, article_description, article_text,author_id)
+        VALUES ("' . $article_title . '","' . $article_description . '","' . $article_text . '","' . $author_id . '");';
         $db = new ConnectionDB();
         $db->sqlMake("db", $sql);
     }
