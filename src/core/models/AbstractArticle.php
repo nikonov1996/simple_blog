@@ -1,19 +1,24 @@
 <?php
+namespace Src\core\models;
 
-class AbstractArticle{
+abstract class AbstractArticle{
 
     protected $article_id, $article_title, $article_text, $article_discription, $article_date;
 
-    protected static function createArticle(){
+    protected static function createArticleById(){
 
     }
 
-    protected static function updateArticle(){
+    protected static function updateArticleById($formdata){
 
     }
 
-    protected static function deleteArticle(){
+    protected static function deleteArticleById(){
         
+    }
+
+    protected static function getAllArticles(){
+
     }
 
 

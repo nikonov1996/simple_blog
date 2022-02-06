@@ -1,9 +1,10 @@
 <?php
 
 namespace Src\app\service;
-//require_once "app/controllers/UserController.php";
+use Src\app\views\View;
 use Src\app\controllers\UserController;
-use app\models\User;
+use Src\app\models\User;
+use Src\app\models\Article;
 
 class Router {
 
@@ -22,21 +23,28 @@ class Router {
             "class" => $class,
             "method" => $method,
             "post" => true,
-            "formdata" => $formdata
+            "formdata" => $formdata,
+        ];
+    }
+
+    public static function get($uri , $class, $method ){
+        self::$list[] = [
+            "uri" => $uri,
+            "class" => $class,
+            "method" => $method,
+            "get" => true,
+            "id" => end(explode("/",$uri))
         ];
     }
 
     public static function enable(){
     
     $query = $_SERVER['QUERY_STRING'];    
-    // $query = $_GET['q'];
-
        foreach (self::$list as $route){
-
+        
         if ($route['uri'] === "/" . $query){
             
-            if ($route['post'] === true && $_SERVER['REQUEST_METHOD'] === 'POST'){
-
+            if ($route["post"] === true && $_SERVER['REQUEST_METHOD'] === 'POST'){
                 $action = new $route["class"];
                 $method = $route["method"];
                 if ($route["formdata"]){
@@ -46,8 +54,14 @@ class Router {
                 }
                 die();
 
+            }elseif($route["get"] === true && $_SERVER['REQUEST_METHOD'] === 'GET'){
+                $action = new $route["class"];
+                $method = $route["method"];
+                $action->$method($route["id"]);
+                die();
+
             }else{
-                require_once "src/app/views/pages/" . $route['page'] . ".php";
+                View::view($route['page']);
                 die();
             }
         }
@@ -58,11 +72,11 @@ class Router {
     }
 
     public static function not_found(){
-        require_once "src/app/views/pages/404.php";
+        View::view("404");
     }
 
     public static function redirect($uri){
-        \header('Location: ' . $uri);
+        View::view($uri);
     }
 
     

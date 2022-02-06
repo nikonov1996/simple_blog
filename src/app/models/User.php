@@ -29,7 +29,7 @@ class User extends AbstractUser{
         $user = $result->fetch_object();
         if (!$user){
             //die("User not found"); // TODO нужен нормальный вывод ошибок
-            Router::redirect("/auth");
+            Router::redirect("auth");
         }else{
             
             if(!($user->user_password === null) && $password === $user->user_password){  //TODO хранить пароли хэшированные и сравнивать с password_verify()
@@ -40,9 +40,9 @@ class User extends AbstractUser{
                 "user_email" => $user->user_email,
                 "role_id" => $user->role_id
             ];
-                Router::redirect("/my_articles");
+                Router::redirect("welcome");
             }else{
-                Router::redirect("/auth");
+                Router::redirect("auth");
             }
         }
         
@@ -51,6 +51,14 @@ class User extends AbstractUser{
     public static function Logout(){
         unset($_SESSION['user']);
         Router::redirect("/auth");
+    }
+
+    public static function getUserById($user_id){
+        $sql = 'SELECT * FROM Users WHERE user_id="'. $user_id .'";';
+        $db = new ConnectionDB();
+        $result = $db->sqlGet("db",$sql);
+        $user = $result->fetch_object();
+        return $user;
     }
 
 }
