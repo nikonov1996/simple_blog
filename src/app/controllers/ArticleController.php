@@ -32,7 +32,7 @@ class ArticleController{
 
     public function createArticle($formdata){
         Article::createArticle($formdata);
-        View::view('my_articles');
+        self::printUserArticles();
     }
 
 
