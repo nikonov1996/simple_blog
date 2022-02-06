@@ -23,5 +23,15 @@ class Article extends AbstractArticle{
         $result = $db->sqlGet("db",$sql);
         return $result->fetch_object();
     }
+
+    public static function updateArticleById($formdata){
+        $article_id = $formdata['article_id'];
+        $article_title = $formdata['article_title'];
+        $article_description = $formdata['article_description'];
+        $article_text = $formdata['article_text'];
+        $sql = 'UPDATE `Articles` SET `article_name` = \''. $article_title .'\' , `article_description`= \'' . $article_description . '\' , `article_text`= \'' . $article_text . '\' WHERE `Articles`.`article_id`= ' . $article_id . ';';
+        $db = new ConnectionDB();
+        $db->sqlMake("db", $sql);
+    }
 }
 

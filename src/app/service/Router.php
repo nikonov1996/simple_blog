@@ -3,7 +3,8 @@
 namespace Src\app\service;
 use Src\app\views\View;
 use Src\app\controllers\UserController;
-use app\models\User;
+use Src\app\models\User;
+use Src\app\models\Article;
 
 class Router {
 
@@ -22,7 +23,7 @@ class Router {
             "class" => $class,
             "method" => $method,
             "post" => true,
-            "formdata" => $formdata
+            "formdata" => $formdata,
         ];
     }
 

@@ -18,8 +18,17 @@ Page::checkAuth();
 ?>
 
     <?php
-
+    if ($_SESSION['user']) { //TODO думаю стоит обернуть это в метод в модели юзера isUserAuth()
     $article = View::getViewData();
+    $_SESSION['article'] = [
+        'article_id' => $article->article_id,
+        'article_name' => $article->article_name,
+        'article_description' => $article->article_description ,
+        'article_text' => $article->article_text,
+        'author_name' => $article->user_name,
+        'author_email' => $article->user_email,
+        'article_date' => $article->article_date
+    ]
     ?> 
     <div class="card" >
         <div class="card-body">
@@ -37,15 +46,15 @@ Page::checkAuth();
             </p>
             <div class="float-end">
                 <?php 
-                if ($_SESSION['user'] && $_SESSION['user']['user_id']===$article->author_id){
+                if($_SESSION['user']['role_id'] == 1 or $_SESSION['user']['user_id'] === $article->author_id){
                 ?>
-                <a href="/article/<?= $article->article_id ?>" class="btn btn-secondary" id="edit_button">Edit</a>
-                <a href="/article/<?= $article->article_id ?>" class="btn btn-danger" id="delete_button">Delete</a>
+                <a href="/article_edit" class="btn btn-secondary" id="edit_button">Edit</a>
+                <a href="/article/delete/<?= $article->article_id ?>" class="btn btn-danger" id="delete_button">Delete</a>
                 <?php } ?>
             </div>
         </div>
     </div>
-    
+    <?php } ?>
 
 </body>
 </html>

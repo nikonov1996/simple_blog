@@ -24,6 +24,12 @@ class ArticleController{
         View::view('article', $article);
     }
 
+    public function updateArticleById($formdata){
+        $article_id = $formdata['article_id'];
+        Article::updateArticleById($formdata);
+        self::printArticleById($article_id);
+        
+    }
 
 
 

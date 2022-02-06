@@ -33,9 +33,6 @@ Page::checkAuth();
                 <strong>You can write to author by email: </strong> <?=$article->user_email?>
             </p>
             <a href="/article/<?= $article->article_id ?>" class="btn btn-primary">Read</a>
-            <div class="float-end">
-                <a href="/article/<?= $article->article_id ?>" class="btn btn-secondary" id="edit_button">Edit</a>
-            </div>
         </div>
     </div>
     <?php }} ?>

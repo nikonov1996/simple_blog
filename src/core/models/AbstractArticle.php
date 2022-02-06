@@ -1,7 +1,7 @@
 <?php
 namespace Src\core\models;
 
-class AbstractArticle{
+abstract class AbstractArticle{
 
     protected $article_id, $article_title, $article_text, $article_discription, $article_date;
 
@@ -9,7 +9,7 @@ class AbstractArticle{
 
     }
 
-    protected static function updateArticleById(){
+    protected static function updateArticleById($formdata){
 
     }
 
