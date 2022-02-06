@@ -36,10 +36,10 @@ Page::checkAuth();
                 <input type="text"name="author_id" hidden="true" value=<?= $_SESSION['user']['user_id'] ?>>
                 <br>
                 <p>
-                    <strong>Author </strong> <?=$_SESSION['article']['author_name']?>
+                    <strong>Author </strong> <?=$_SESSION['user']['user_name']?>
                 </p>
                 <p>
-                    <strong>Email: </strong> <?=$_SESSION['article']['author_email']?>
+                    <strong>Email: </strong> <?=$_SESSION['user']['user_email']?>
                 </p>
                 <button type="submit" class="btn btn-primary">Create</button>
             </div>
