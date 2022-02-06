@@ -27,8 +27,12 @@ class ArticleController{
     public function updateArticleById($formdata){
         $article_id = $formdata['article_id'];
         Article::updateArticleById($formdata);
-        self::printArticleById($article_id);
-        
+        self::printArticleById($article_id);   
+    }
+
+    public function createArticle($formdata){
+        Article::createArticle($formdata);
+        View::view('my_articles');
     }
 
 

@@ -33,7 +33,7 @@ Page::checkAuth();
                 <p class="card-text form-group">
                     <textarea class="form-control" name="article_text" cols="40" rows="15" placeholder="Write the article text here..."></textarea>
                 </p>
-                <input type="text"name="author_id" hidden="true" value=<?= $_SESSION['article']['author_id'] ?>>
+                <input type="text"name="author_id" hidden="true" value=<?= $_SESSION['user']['user_id'] ?>>
                 <br>
                 <p>
                     <strong>Author </strong> <?=$_SESSION['article']['author_name']?>
@@ -41,10 +41,7 @@ Page::checkAuth();
                 <p>
                     <strong>Email: </strong> <?=$_SESSION['article']['author_email']?>
                 </p>
-                <button type="submit" class="btn btn-primary">Save</button>
-                <div class="float-end">
-                    <a href="/article/delete/<?= $_SESSION['article']['article_id'] ?>" class="btn btn-danger" id="delete_button">Delete</a>
-                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
     </div>
 </form>
