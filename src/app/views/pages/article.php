@@ -19,7 +19,9 @@ Page::checkAuth();
 
     <?php
     if ($_SESSION['user']) { //TODO думаю стоит обернуть это в метод в модели юзера isUserAuth()
-    $article = View::getViewData();
+    $page_content = View::getViewData();
+    $article = $page_content['article'];
+    $comments = $page_content['comments'];
     $_SESSION['article'] = [
         'article_id' => $article->article_id,
         'article_name' => $article->article_name,
@@ -54,7 +56,11 @@ Page::checkAuth();
             </div>
         </div>
     </div>
-    <?php } ?>
+    
+<?php
+    Page::page_component("comments_list",$comments);
+    } 
+?>
 
 </body>
 </html>
