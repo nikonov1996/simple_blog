@@ -35,6 +35,11 @@ class ArticleController{
         self::printUserArticles();
     }
 
+    public function deleteArticleById($article_id){
+        Article::deleteArticleById($article_id);
+        self::printUserArticles();
+    }
+
 
 
 }
