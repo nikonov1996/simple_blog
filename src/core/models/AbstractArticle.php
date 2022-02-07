@@ -13,7 +13,7 @@ abstract class AbstractArticle{
 
     }
 
-    protected static function deleteArticleById(){
+    protected static function deleteArticleById($id){
         
     }
 
