@@ -11,11 +11,13 @@ Router::route('/','welcome');
 Router::route('/article_edit','article_edit');
 Router::route('/registration','registration');
 Router::route('/auth','auth');
+Router::route('/new_article','new_article');
 
 
 Router::post('/registration/register', UserController::class, 'register', true);
 Router::post('/auth/login', UserController::class, 'login', true);
 Router::post('/logout', UserController::class,'logout',false);
+Router::post('/new_article/create',ArticleController::class,'createArticle',true);
 Router::post('/article/delete/'. end(explode("/",$_SERVER['QUERY_STRING'])),ArticleController::class , "deleteArticleById",false);
 Router::post('/article/edit/'. end(explode("/",$_SERVER['QUERY_STRING'])),ArticleController::class , "updateArticleById",true);
 Router::get('/articles_list',ArticleController::class,"printAllArticles");

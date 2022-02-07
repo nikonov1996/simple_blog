@@ -17,7 +17,10 @@ use Src\app\service\Page;
                 <a class="nav-link active" aria-current="page" href="/articles_list">List of articles</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" href="/my_articles">My_articles</a>
+                <a class="nav-link active" href="/new_article">Create article</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="/my_articles">My articles</a>
                 </li>
                 <li class="nav-item">
                     <form action="/logout" method="post">
