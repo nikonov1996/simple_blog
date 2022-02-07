@@ -44,5 +44,13 @@ class Article extends AbstractArticle{
         $db = new ConnectionDB();
         $db->sqlMake("db", $sql);
     }
+
+    public static function deleteArticleById($article_id){
+        $sql = 'DELETE FROM Articles WHERE `Articles`.`article_id`= ' . $article_id . ';';
+        $db = new ConnectionDB();
+        $db->sqlMake("db", $sql);
+    }
+
+
 }
 
