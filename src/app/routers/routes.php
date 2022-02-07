@@ -18,7 +18,7 @@ Router::post('/registration/register', UserController::class, 'register', true);
 Router::post('/auth/login', UserController::class, 'login', true);
 Router::post('/logout', UserController::class,'logout',false);
 Router::post('/new_article/create',ArticleController::class,'createArticle',true);
-Router::post('/article/delete/'. end(explode("/",$_SERVER['QUERY_STRING'])),ArticleController::class , "deleteArticleById",false);
+Router::get('/article/delete/'. end(explode("/",$_SERVER['QUERY_STRING'])),ArticleController::class , "deleteArticleById");
 Router::post('/article/edit/'. end(explode("/",$_SERVER['QUERY_STRING'])),ArticleController::class , "updateArticleById",true);
 Router::get('/articles_list',ArticleController::class,"printAllArticles");
 Router::get('/my_articles',ArticleController::class,"printUserArticles");
