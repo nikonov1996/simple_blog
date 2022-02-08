@@ -1,7 +1,9 @@
 
 <?php 
 use Src\app\service\Page;
-$comments = Page::getPageData();
+$pageContent = Page::getPageData();
+$article = $pageContent['article'];
+$comments = $pageContent['comments'];
 ?>
 <div class="accordion" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
@@ -32,6 +34,23 @@ $comments = Page::getPageData();
                 </div>
             </div> 
     <?php } ?>
+        
+    <div class="float-start container">
+        <div class="row">
+        
+            <form action="/article/addComment/" method="post">
+                <br>
+                <div class="col">
+                    <textarea class="form-control" name="comment_text" cols="50" rows="2" placeholder="Write you comment here..."></textarea>
+                    <input type="text"name="author_id" hidden="true" value=<?= $_SESSION['user']['user_id'] ?>>
+                    <input type="text"name="article_id" hidden="true" value=<?= $article->article_id ?>>
+                </div>
+                <br>
+                <div class="col">
+                    <button type="submit" class="btn btn-secondary">Add comment</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
   
