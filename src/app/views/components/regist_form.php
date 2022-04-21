@@ -38,7 +38,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="rep_password" class="form-control" />
+                      <input type="password" name="rep_password" class="form-control" />
                       <label class="form-label" for="rep_password">Repeat your password</label>
                     </div>
                   </div>

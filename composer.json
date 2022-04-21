@@ -1,7 +1,17 @@
 {
     "autoload": {
         "psr-4": {
-            "Src\\" : "src/"
+            "Src\\": "src/"
         }
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0",
+        "codeception/module-db": "^2.0"
+    },
+    "require": {
+        "codeception/module-rest": "^2.0",
+        "fzaninotto/faker": "^1.9"
     }
 }
