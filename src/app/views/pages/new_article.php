@@ -22,7 +22,7 @@ Page::checkAuth();
                 <h4 class="card-title">
                 Article title:
                 </h4>
-                    <textarea class="form-control" name="article_title" cols="100" rows="1" placeholder="Write the article title here..."></textarea></p>
+                    <textarea class="form-control" name="article_title" cols="100" rows="1" placeholder="Write the article title here..."></textarea>
                 <br>
                 <h4>Description:</h4>
                 <p class="card-text form-group">

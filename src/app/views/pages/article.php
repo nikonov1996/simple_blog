@@ -18,8 +18,11 @@ Page::checkAuth();
 ?>
 
     <?php
-    if ($_SESSION['user']) { //TODO думаю стоит обернуть это в метод в модели юзера isUserAuth()
-    $article = View::getViewData();
+    
+    $page_content = View::getViewData();
+    $article = $page_content['article'];
+    $comments = $page_content['comments'];
+
     $_SESSION['article'] = [
         'article_id' => $article->article_id,
         'article_name' => $article->article_name,
@@ -45,8 +48,9 @@ Page::checkAuth();
                 <strong>You can write to author by email: </strong> <?=$article->user_email?>
             </p>
             <div class="float-end">
-                <?php 
-                if($_SESSION['user']['role_id'] == 1 or $_SESSION['user']['user_id'] === $article->author_id){
+                <?php
+                if ($_SESSION['user']) { //TODO думаю стоит обернуть это в метод в модели юзера isUserAuth()
+                    if($_SESSION['user']['role_id'] == 1 or $_SESSION['user']['user_id'] === $article->author_id){
                 ?>
                 <a href="/article_edit" class="btn btn-secondary" id="edit_button">Edit</a>
                 <a href="/article/delete/<?= $article->article_id ?>" class="btn btn-danger" id="delete_button">Delete</a>
@@ -54,7 +58,11 @@ Page::checkAuth();
             </div>
         </div>
     </div>
-    <?php } ?>
+    
+<?php
+    Page::page_component("comments_list",$page_content);
+    } 
+?>
 
 </body>
 </html>
