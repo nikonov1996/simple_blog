@@ -10,4 +10,13 @@ modules:
     enabled:
         # add a framework module here
         - \Helper\Functional
+        - PhpBrowser:
+              url: 'http://127.0.0.1:8000/'
+        - Db:
+              dsn: 'mysql:host=127.0.0.1:9906; dbname=simple_blog_db'
+              user: 'tester'
+              password: 'tester'
+              #              dump: 'tests/_data/simple_blog_db.sql'
+              #              cleanup: true # run populator before each test
+              #              populator: 'mysql -u $user -h $host $dbname < $dump'
     step_decorators: ~        

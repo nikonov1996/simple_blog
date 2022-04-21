@@ -8,6 +8,15 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://localhost/myapp
+            url: 'http://127.0.0.1:8000/'
         - \Helper\Acceptance
+        - Db:
+              dsn: 'mysql:host=127.0.0.1:9906; dbname=simple_blog_db'
+              user: 'tester'
+              password: 'tester'
+              populate: true
+              cleanup: true # run populator before each test
+              dump: 'tests/_data/simple_blog_db.sql'
+#              populator: 'mysql -u $user -h $host $dbname < $dump'
+
 step_decorators: ~        
