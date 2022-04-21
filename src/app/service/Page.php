@@ -5,8 +5,17 @@ use Src\app\service\Router;
 
 class Page{
 
-    public static function page_component($component){
+    private static $page_data;
+
+    public static function page_component($component , $data=null){
+        if($data!=null){
+            self::$page_data = $data;
+        }
         require_once("src/app/views/components/" . $component . ".php");
+    }
+
+    public static function getPageData(){
+        return self::$page_data;
     }
 
     public static function checkAuth(){
