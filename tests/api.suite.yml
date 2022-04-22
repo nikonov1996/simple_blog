@@ -6,7 +6,7 @@ modules:
               url: 'http://127.0.0.1:8000/'
               depends: PhpBrowser
         - Db:
-              dsn: 'mysql:host=127.0.0.1:9906; dbname=simple_blog_db'
+              dsn: 'mysql:host=localhost:9906; dbname=simple_blog_db'
               user: 'tester'
               password: 'tester'
 #              dump: 'tests/_data/simple_blog_db.sql'

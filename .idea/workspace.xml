@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7757e8f-5e68-466b-adf6-9afbe7a4933a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/_data/simple_blog_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tests/_data/simple_blog_db.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/acceptance.suite.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/acceptance.suite.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/acceptance/UserRegisterCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/acceptance/UserRegisterCest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/api/FirstTestCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/api/FirstApiTestCest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit.suite.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/api.suite.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/api.suite.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/api/FirstApiTestCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/api/ArticleListCest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

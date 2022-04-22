@@ -38,9 +38,9 @@ class UserRegisterCest
        // $I->click('button.btn-lg');
         $I->dontSeeInDatabase('Users', ['user_name' => self::$user['username'].'_new']);
 
-        //for test smth
-        $I->haveInDatabase('Users', ['user_name' => 'Nikonov User' , 'user_email' => 'nva3@mail.ru','user_password'=>'qwerty']);
-        $I->seeInDatabase('Users', ['user_name' => 'Nikonov User']);
+//        //for test smth
+//        $I->haveInDatabase('Users', ['user_name' => 'Nikonov User' , 'user_email' => 'nva3@mail.ru','user_password'=>'qwerty']);
+//        $I->seeInDatabase('Users', ['user_name' => 'Nikonov User']);
     }
 
 /*

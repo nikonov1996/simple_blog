@@ -1,13 +1,13 @@
 <?php
 
-class FirstApiTestCest
+class ArticleListCest
 {
     public function _before(ApiTester $I)
     {
     }
 
     // tests
-    public function tryToTest(ApiTester $I)
+    public function seeArticleListTest(ApiTester $I)
     {
         $response = $I->sendPost('/articles_list');
         $I->seeResponseCodeIs(200);
