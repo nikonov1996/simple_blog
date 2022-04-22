@@ -21,13 +21,18 @@ SET time_zone = "+00:00";
 -- База данных: `simple_blog_db`
 --
 
+DROP TABLE IF EXISTS `Articles`;
+DROP TABLE IF EXISTS `Users`;
+DROP TABLE IF EXISTS `Article_comments`;
+DROP TABLE IF EXISTS `Roles`;
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `Articles`
 --
 
-CREATE TABLE `Articles` (
+CREATE TABLE IF NOT EXISTS `Articles` (
   `article_id` int NOT NULL,
   `article_name` varchar(100) DEFAULT NULL,
   `article_description` text,
@@ -54,7 +59,7 @@ INSERT INTO `Articles` (`article_id`, `article_name`, `article_description`, `ar
 -- Структура таблицы `Article_comments`
 --
 
-CREATE TABLE `Article_comments` (
+CREATE TABLE IF NOT EXISTS `Article_comments` (
   `comment_id` int NOT NULL,
   `comment_text` text,
   `comment_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -82,7 +87,7 @@ INSERT INTO `Article_comments` (`comment_id`, `comment_text`, `comment_date`, `u
 -- Структура таблицы `Roles`
 --
 
-CREATE TABLE `Roles` (
+CREATE TABLE IF NOT EXISTS `Roles` (
   `role_id` int NOT NULL,
   `role_name` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -102,7 +107,7 @@ INSERT INTO `Roles` (`role_id`, `role_name`) VALUES
 -- Структура таблицы `Users`
 --
 
-CREATE TABLE `Users` (
+CREATE TABLE IF NOT EXISTS `Users` (
   `user_id` int NOT NULL,
   `user_name` varchar(50) DEFAULT NULL,
   `user_email` varchar(30) DEFAULT NULL,

@@ -33,7 +33,7 @@ class Router {
             "class" => $class,
             "method" => $method,
             "get" => true,
-            "id" => end(explode("/",$uri))
+            "id" => end(explode("/", $uri))
         ];
     }
 

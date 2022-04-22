@@ -5,17 +5,25 @@
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
 actor: AcceptanceTester
+
+groups:
+    all:
+      [
+        tests/acceptance/UserRegisterCest.php,
+        tests/acceptance/UserAuthCest.php,
+      ]
+
 modules:
     enabled:
         - PhpBrowser:
             url: 'http://127.0.0.1:8000/'
         - \Helper\Acceptance
         - Db:
-              dsn: 'mysql:host=127.0.0.1:9906; dbname=simple_blog_db'
+              dsn: 'mysql:host=localhost:9906; dbname=simple_blog_db'
               user: 'tester'
               password: 'tester'
-              populate: true
-              cleanup: true # run populator before each test
+              populate: true    # очищает базу и восстанавливает ее из дампа перед всеми тестами
+#              cleanup: true # очищает базу и восстанавливает ее из дампа перед каждым тестом
               dump: 'tests/_data/simple_blog_db.sql'
 #              populator: 'mysql -u $user -h $host $dbname < $dump'
 
